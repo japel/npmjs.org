@@ -31,7 +31,7 @@ esac
 host="$(node -pe 'require("url").parse(process.argv[1]).host' "$c")"
 hostname="$(node -pe 'require("url").parse(process.argv[1]).hostname' "$c")"
 ips=($(dig +short "$hostname" | egrep '^[0-9]'))
-
+ips="127.0.0.1"
 for ip in "${ips[@]}"; do
   ipurl="${c/$hostname/$ip}"
   echo $ip
