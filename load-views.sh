@@ -38,6 +38,6 @@ for ip in "${ips[@]}"; do
   node -pe 'Object.keys(require("./registry/app.js").views).join("\n")' \
   | while read view; do
     echo "LOADING: $view"
-    curl -Ik "$ipurl/_design/scratch/_view/$view" -H "host:$host"
+    curl -Ik "localhost:5984/_design/scratch/_view/$view" -H "host:$host"
   done
 done
